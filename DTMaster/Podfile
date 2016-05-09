@@ -1,0 +1,13 @@
+platform :ios, '9.0'
+use_frameworks!
+
+target 'DTMaster' do
+
+pod 'Alamofire', '~> 3.4'
+pod 'SnapKit', '~> 0.15.0'
+pod 'IQKeyboardManagerSwift', '4.0.0'
+pod 'YYKit'
+pod 'pop', '~> 1.0'
+pod 'HanekeSwift'
+
+end

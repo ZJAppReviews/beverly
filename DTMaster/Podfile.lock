@@ -1,0 +1,27 @@
+PODS:
+  - Alamofire (3.4.0)
+  - HanekeSwift (0.10.1)
+  - IQKeyboardManagerSwift (4.0.0)
+  - pop (1.0.9)
+  - SnapKit (0.15.0)
+  - YYKit (1.0.5):
+    - YYKit/no-arc (= 1.0.5)
+  - YYKit/no-arc (1.0.5)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.4)
+  - HanekeSwift
+  - IQKeyboardManagerSwift (= 4.0.0)
+  - pop (~> 1.0)
+  - SnapKit (~> 0.15.0)
+  - YYKit
+
+SPEC CHECKSUMS:
+  Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
+  HanekeSwift: 08e47d3d0f2899ec58e5d257beba0de619aca9e8
+  IQKeyboardManagerSwift: ede2a27b4e1ce053d03073b9c7fa439322f5e405
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
+  YYKit: f2654fe525de2283648db957bddb37ddd8e06549
+
+COCOAPODS: 0.39.0
