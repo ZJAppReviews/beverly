@@ -42,7 +42,6 @@
 		FD5B27761CE1034200A50A73 /* staging-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "staging-Info.plist"; path = "/Users/yellow/Desktop/My Project/client/beverly/DTMaster/staging-Info.plist"; sourceTree = "<absolute>"; };
 		FD5B27871CE1039B00A50A73 /* DTMasterProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DTMasterProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD5B27881CE1039B00A50A73 /* beat-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "beat-Info.plist"; path = "/Users/yellow/Desktop/My Project/client/beverly/DTMaster/beat-Info.plist"; sourceTree = "<absolute>"; };
-		FD5B279A1CE112F400A50A73 /* DTMasterProduct copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "DTMasterProduct copy-Info.plist"; path = "/Users/yellow/Desktop/My Project/client/beverly/DTMaster/DTMasterProduct copy-Info.plist"; sourceTree = "<absolute>"; };
 		FD5B279B1CE17D5A00A50A73 /* DTMasterBeta-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DTMasterBeta-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,7 +97,6 @@
 				FD5B27511CE09EC600A50A73 /* Products */,
 				F80773B69AA20FFB180D5704 /* Pods */,
 				1E24EE2AE8E40CAB7F319BA1 /* Frameworks */,
-				FD5B279A1CE112F400A50A73 /* DTMasterProduct copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -491,7 +489,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -531,7 +529,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
