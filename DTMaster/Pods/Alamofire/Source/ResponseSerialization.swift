@@ -86,8 +86,7 @@ extension Request {
     public func response(
         queue queue: dispatch_queue_t? = nil,
         completionHandler: (NSURLRequest?, NSHTTPURLResponse?, NSData?, NSError?) -> Void)
-        -> Self
-    {
+        -> Self {
         delegate.queue.addOperationWithBlock {
             dispatch_async(queue ?? dispatch_get_main_queue()) {
                 completionHandler(self.request, self.response, self.delegate.data, self.delegate.error)
@@ -101,7 +100,7 @@ extension Request {
         Adds a handler to be called once the request has finished.
 
         - parameter queue:              The queue on which the completion handler is dispatched.
-        - parameter responseSerializer: The response serializer responsible for serializing the request, response, 
+        - parameter responseSerializer: The response serializer responsible for serializing the request, response,
                                         and data.
         - parameter completionHandler:  The code to be executed once the request has finished.
 
@@ -111,8 +110,7 @@ extension Request {
         queue queue: dispatch_queue_t? = nil,
         responseSerializer: T,
         completionHandler: Response<T.SerializedObject, T.ErrorObject> -> Void)
-        -> Self
-    {
+        -> Self {
         delegate.queue.addOperationWithBlock {
             let result = responseSerializer.serializeResponse(
                 self.request,
@@ -181,8 +179,7 @@ extension Request {
     public func responseData(
         queue queue: dispatch_queue_t? = nil,
         completionHandler: Response<NSData, NSError> -> Void)
-        -> Self
-    {
+        -> Self {
         return response(queue: queue, responseSerializer: Request.dataResponseSerializer(), completionHandler: completionHandler)
     }
 }
@@ -192,18 +189,17 @@ extension Request {
 extension Request {
 
     /**
-        Creates a response serializer that returns a string initialized from the response data with the specified 
+        Creates a response serializer that returns a string initialized from the response data with the specified
         string encoding.
 
-        - parameter encoding: The string encoding. If `nil`, the string encoding will be determined from the server 
+        - parameter encoding: The string encoding. If `nil`, the string encoding will be determined from the server
                               response, falling back to the default HTTP default character set, ISO-8859-1.
 
         - returns: A string response serializer.
     */
     public static func stringResponseSerializer(
         encoding encoding: NSStringEncoding? = nil)
-        -> ResponseSerializer<String, NSError>
-    {
+        -> ResponseSerializer<String, NSError> {
         return ResponseSerializer { _, response, data, error in
             guard error == nil else { return .Failure(error!) }
 
@@ -214,9 +210,9 @@ extension Request {
                 let error = Error.error(code: .StringSerializationFailed, failureReason: failureReason)
                 return .Failure(error)
             }
-            
+
             var convertedEncoding = encoding
-            
+
             if let encodingName = response?.textEncodingName where convertedEncoding == nil {
                 convertedEncoding = CFStringConvertEncodingToNSStringEncoding(
                     CFStringConvertIANACharSetNameToEncoding(encodingName)
@@ -238,8 +234,8 @@ extension Request {
     /**
         Adds a handler to be called once the request has finished.
 
-        - parameter encoding:          The string encoding. If `nil`, the string encoding will be determined from the 
-                                       server response, falling back to the default HTTP default character set, 
+        - parameter encoding:          The string encoding. If `nil`, the string encoding will be determined from the
+                                       server response, falling back to the default HTTP default character set,
                                        ISO-8859-1.
         - parameter completionHandler: A closure to be executed once the request has finished.
 
@@ -249,8 +245,7 @@ extension Request {
         queue queue: dispatch_queue_t? = nil,
         encoding: NSStringEncoding? = nil,
         completionHandler: Response<String, NSError> -> Void)
-        -> Self
-    {
+        -> Self {
         return response(
             queue: queue,
             responseSerializer: Request.stringResponseSerializer(encoding: encoding),
@@ -264,7 +259,7 @@ extension Request {
 extension Request {
 
     /**
-        Creates a response serializer that returns a JSON object constructed from the response data using 
+        Creates a response serializer that returns a JSON object constructed from the response data using
         `NSJSONSerialization` with the specified reading options.
 
         - parameter options: The JSON serialization reading options. `.AllowFragments` by default.
@@ -273,8 +268,7 @@ extension Request {
     */
     public static func JSONResponseSerializer(
         options options: NSJSONReadingOptions = .AllowFragments)
-        -> ResponseSerializer<AnyObject, NSError>
-    {
+        -> ResponseSerializer<AnyObject, NSError> {
         return ResponseSerializer { _, response, data, error in
             guard error == nil else { return .Failure(error!) }
 
@@ -307,8 +301,7 @@ extension Request {
         queue queue: dispatch_queue_t? = nil,
         options: NSJSONReadingOptions = .AllowFragments,
         completionHandler: Response<AnyObject, NSError> -> Void)
-        -> Self
-    {
+        -> Self {
         return response(
             queue: queue,
             responseSerializer: Request.JSONResponseSerializer(options: options),
@@ -322,7 +315,7 @@ extension Request {
 extension Request {
 
     /**
-        Creates a response serializer that returns an object constructed from the response data using 
+        Creates a response serializer that returns an object constructed from the response data using
         `NSPropertyListSerialization` with the specified reading options.
 
         - parameter options: The property list reading options. `NSPropertyListReadOptions()` by default.
@@ -331,8 +324,7 @@ extension Request {
     */
     public static func propertyListResponseSerializer(
         options options: NSPropertyListReadOptions = NSPropertyListReadOptions())
-        -> ResponseSerializer<AnyObject, NSError>
-    {
+        -> ResponseSerializer<AnyObject, NSError> {
         return ResponseSerializer { _, response, data, error in
             guard error == nil else { return .Failure(error!) }
 
@@ -358,7 +350,7 @@ extension Request {
 
         - parameter options:           The property list reading options. `0` by default.
         - parameter completionHandler: A closure to be executed once the request has finished. The closure takes 3
-                                       arguments: the URL request, the URL response, the server data and the result 
+                                       arguments: the URL request, the URL response, the server data and the result
                                        produced while creating the property list.
 
         - returns: The request.
@@ -367,8 +359,7 @@ extension Request {
         queue queue: dispatch_queue_t? = nil,
         options: NSPropertyListReadOptions = NSPropertyListReadOptions(),
         completionHandler: Response<AnyObject, NSError> -> Void)
-        -> Self
-    {
+        -> Self {
         return response(
             queue: queue,
             responseSerializer: Request.propertyListResponseSerializer(options: options),

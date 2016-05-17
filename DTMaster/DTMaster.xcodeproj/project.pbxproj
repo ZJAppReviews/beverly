@@ -37,7 +37,7 @@
 		FD5B27581CE09EC600A50A73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD5B275A1CE09EC600A50A73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD5B275D1CE09EC600A50A73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FD5B275F1CE09EC600A50A73 /* product-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "product-Info.plist"; sourceTree = "<group>"; };
+		FD5B275F1CE09EC600A50A73 /* product-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "product-Info.plist"; path = "../product-Info.plist"; sourceTree = "<group>"; };
 		FD5B27751CE1034200A50A73 /* DTMasterStaging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DTMasterStaging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD5B27761CE1034200A50A73 /* staging-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "staging-Info.plist"; path = "/Users/yellow/Desktop/My Project/client/beverly/DTMaster/staging-Info.plist"; sourceTree = "<absolute>"; };
 		FD5B27871CE1039B00A50A73 /* DTMasterProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DTMasterProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,17 +113,25 @@
 		FD5B27521CE09EC600A50A73 /* DTMaster */ = {
 			isa = PBXGroup;
 			children = (
+				FD5B275A1CE09EC600A50A73 /* Assets.xcassets */,
+				FDB97E9C1CEB44950069F465 /* Resources */,
 				FD5B27531CE09EC600A50A73 /* AppDelegate.swift */,
 				FD5B27551CE09EC600A50A73 /* ViewController.swift */,
 				FD5B27571CE09EC600A50A73 /* Main.storyboard */,
-				FD5B275A1CE09EC600A50A73 /* Assets.xcassets */,
 				FD5B275C1CE09EC600A50A73 /* LaunchScreen.storyboard */,
-				FD5B275F1CE09EC600A50A73 /* product-Info.plist */,
-				FD5B27761CE1034200A50A73 /* staging-Info.plist */,
-				FD5B27881CE1039B00A50A73 /* beat-Info.plist */,
 				FD5B279B1CE17D5A00A50A73 /* DTMasterBeta-Bridging-Header.h */,
 			);
 			path = DTMaster;
+			sourceTree = "<group>";
+		};
+		FDB97E9C1CEB44950069F465 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FD5B275F1CE09EC600A50A73 /* product-Info.plist */,
+				FD5B27761CE1034200A50A73 /* staging-Info.plist */,
+				FD5B27881CE1039B00A50A73 /* beat-Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +147,7 @@
 				FD5B274E1CE09EC600A50A73 /* Resources */,
 				9CD63B135481C07C6BD6282D /* Embed Pods Frameworks */,
 				562E899D2546BDB608E89DC4 /* Copy Pods Resources */,
+				FD8D6AAF1CE65B260045918A /* SwiftLint Script */,
 			);
 			buildRules = (
 			);
@@ -159,6 +168,7 @@
 				FD5B276C1CE1034200A50A73 /* Resources */,
 				FD5B27701CE1034200A50A73 /* Embed Pods Frameworks */,
 				FD5B27711CE1034200A50A73 /* Copy Pods Resources */,
+				FD8D6AAE1CE65AF60045918A /* SwiftLint Script */,
 			);
 			buildRules = (
 			);
@@ -179,6 +189,7 @@
 				FD5B277E1CE1039B00A50A73 /* Resources */,
 				FD5B27821CE1039B00A50A73 /* Embed Pods Frameworks */,
 				FD5B27831CE1039B00A50A73 /* Copy Pods Resources */,
+				FD8D6AB01CE65B310045918A /* SwiftLint Script */,
 			);
 			buildRules = (
 			);
@@ -399,6 +410,48 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DTMaster/Pods-DTMaster-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		FD8D6AAE1CE65AF60045918A /* SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./bootstrap.sh swift_lint";
+		};
+		FD8D6AAF1CE65B260045918A /* SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./bootstrap.sh swift_lint";
+		};
+		FD8D6AB01CE65B310045918A /* SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./bootstrap.sh swift_lint";
 		};
 /* End PBXShellScriptBuildPhase section */
 
